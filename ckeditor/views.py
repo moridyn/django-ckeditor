@@ -146,6 +146,11 @@ def is_image(path):
     return ext in ['jpg', 'jpeg', 'png', 'gif']
 
 
+def is_file(path):
+    name = path.split('/')[-1].lower()
+    return '.' in name
+
+
 def browse(request):
     context = RequestContext(request, {
         'files': get_files_browse_urls(request.user),
